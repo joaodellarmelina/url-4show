@@ -106,7 +106,7 @@ function ExhibitionStage({ links }: LinkExhibitionProps) {
           : 0.28
         : 0.12 + emphasis * 0.88;
       const blur = reducedMotion ? 0 : absoluteDistance * 1.25;
-      const weight = Math.round(340 + emphasis * 460);
+      const weight = Math.round(150 + emphasis * 200);
       const yOffset = distance * step;
       const titleAlpha = 0.12 + emphasis * 0.88;
       const subtitleAlpha = 0.08 + emphasis * 0.82;
@@ -403,7 +403,7 @@ function ExhibitionStage({ links }: LinkExhibitionProps) {
       <footer className={styles.footer}>
         <div className={styles.activeMeta}>
           <p className={styles.activeValue}>
-            {activeLink.title} · {activeLink.subtitle}
+            {activeLink.href}
           </p>
         </div>
       </footer>

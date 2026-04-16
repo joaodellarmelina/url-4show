@@ -5,6 +5,12 @@
     "subtitle": "",
     "href": "https://www.linkedin.com/in/joao-dellarmelina/"
   },
+    {
+    "id": "instagram",
+    "title": "Instagram",
+    "subtitle": "",
+    "href": "https://www.instagram.com/joaodellarmelina/"
+  },
       {
     "id": "github",
     "title": "Github",
@@ -14,19 +20,19 @@
   {
     "id": "first",
     "title": "Blog",
-    "subtitle": "joaodellarmelina.com",
+    "subtitle": "blog pessoal onde compartilho minhas ideias, aprendizados e projetos",
     "href": "https://joaodellarmelina.com"
   },
   {
     "id": "joao-websites",
     "title": "João Websites",
-    "subtitle": "joaowebsites.com",
+    "subtitle": "crio sites que vendem, performam e encantam",
     "href": "https://joaowebsites.com"
   },
     {
     "id": "dev-road",
     "title": "The Dev Road",
-    "subtitle": "In progress",
+    "subtitle": "Em desenvolvimento - O guia de estudo do Dev do Futuro",
     "href": "https://thedevroad.com"
   }
 ]
