@@ -1,0 +1,360 @@
+.page {
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.95), transparent 42%),
+    linear-gradient(180deg, #f8f3eb 0%, #f2ede4 55%, #ece4d7 100%);
+}
+
+.pinSpacer {
+  position: relative;
+}
+
+.pinChild {
+  overflow: hidden;
+}
+
+.stage {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  color: #14110f;
+}
+
+.stage::before,
+.stage::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  height: 10svh;
+  content: "";
+  pointer-events: none;
+}
+
+.stage::before {
+  top: 0;
+  background: linear-gradient(180deg, rgba(242, 237, 228, 0.96), rgba(242, 237, 228, 0));
+}
+
+.stage::after {
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(236, 228, 215, 0.95), rgba(236, 228, 215, 0));
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 100% 100%, 3.2rem 3.2rem;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.header {
+  position: absolute;
+  top: clamp(1.5rem, 4vw, 3rem);
+  left: 50%;
+  z-index: 4;
+  width: min(92vw, 78rem);
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(20, 17, 15, 0.46);
+}
+
+.heading {
+  margin: 0.6rem 0 0;
+  font-size: clamp(2rem, 6vw, 4.8rem);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  font-weight: 420;
+  max-width: 8ch;
+}
+
+.summary {
+  max-width: 28ch;
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(20, 17, 15, 0.56);
+  text-align: right;
+}
+
+.viewport {
+  position: relative;
+  z-index: 2;
+  width: min(92vw, 78rem);
+  height: 100%;
+  margin: 0 auto;
+}
+
+.indicatorRail {
+  position: absolute;
+  left: clamp(0.5rem, 2vw, 2rem);
+  top: 50%;
+  z-index: 3;
+  width: min(16vw, 11rem);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(20, 17, 15, 0.2), rgba(20, 17, 15, 0.6));
+}
+
+.indicatorRail::after {
+  position: absolute;
+  right: -1.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+  border-left: 1.7rem solid #14110f;
+  content: "";
+}
+
+.list {
+  position: absolute;
+  inset: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  position: absolute;
+  top: 50%;
+  left: clamp(34%, 41vw, 44%);
+  width: min(70vw, 34rem);
+  transform:
+    translate3d(0, var(--item-offset, 0px), 0)
+    translateY(-50%)
+    scale(var(--item-scale, 1));
+  transform-origin: center left;
+  opacity: var(--item-opacity, 1);
+  filter: blur(var(--item-blur, 0px));
+  z-index: var(--item-z, 1);
+  will-change: transform, opacity, filter;
+  pointer-events: none;
+}
+
+.itemCard {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.12rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.itemCardActive {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.itemCardActive:focus-visible {
+  outline: 2px solid rgba(20, 17, 15, 0.7);
+  outline-offset: 0.55rem;
+}
+
+.itemTitle {
+  margin: 0;
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  font-weight: var(--item-weight, 440);
+  color: var(--item-title-color, rgba(94, 93, 93, 0.05));
+}
+
+.itemSubtitle {
+  margin: 0;
+  padding-left: 0.2rem;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+  color: var(--item-subtitle-color, rgba(20, 17, 15, 0.32));
+}
+
+.controls {
+  position: absolute;
+  right: clamp(0.5rem, 2vw, 2rem);
+  top: 50%;
+  z-index: 4;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.controlButton {
+  width: 3.25rem;
+  height: 3.25rem;
+  border: 1px solid rgba(20, 17, 15, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  color: #14110f;
+  font-size: 1.15rem;
+  backdrop-filter: blur(14px);
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    opacity 180ms ease;
+}
+
+.controlButton:hover:not(:disabled),
+.controlButton:focus-visible:not(:disabled) {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(20, 17, 15, 0.28);
+  transform: scale(1.04);
+}
+
+.controlButton:disabled {
+  opacity: 0.35;
+}
+
+.footer {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(1.5rem, 4vw, 3rem);
+  z-index: 4;
+  width: min(92vw, 78rem);
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.activeMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.activeLabel {
+  margin: 0;
+  font-size: 0.76rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(20, 17, 15, 0.48);
+}
+
+.activeValue {
+  margin: 0;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.3;
+  color: rgba(20, 17, 15, 0.68);
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: rgba(20, 17, 15, 0.46);
+  text-align: right;
+}
+
+.progressDriver {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  .header,
+  .footer {
+    width: min(92vw, 40rem);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .summary,
+  .hint {
+    text-align: left;
+  }
+
+  .indicatorRail {
+    left: 0;
+    width: min(22vw, 6rem);
+  }
+
+  .indicatorRail::after {
+    right: -1.3rem;
+    border-top-width: 0.75rem;
+    border-bottom-width: 0.75rem;
+    border-left-width: 1.25rem;
+  }
+
+  .item {
+    left: clamp(28%, 28vw, 34%);
+    width: min(64vw, 22rem);
+  }
+
+  .controls {
+    right: 1rem;
+    bottom: 1.2rem;
+    top: auto;
+    transform: none;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    top: 1.25rem;
+  }
+
+  .footer {
+    bottom: 1.25rem;
+  }
+
+  .heading {
+    max-width: 10ch;
+  }
+
+  .item {
+    left: 23%;
+    width: 70vw;
+  }
+
+  .indicatorRail {
+    left: -0.25rem;
+    width: 16vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .controlButton {
+    transition: none;
+  }
+
+  .item {
+    transition:
+      transform 180ms ease-out,
+      opacity 180ms ease-out,
+      filter 180ms ease-out;
+  }
+}

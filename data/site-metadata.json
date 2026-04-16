@@ -1,0 +1,36 @@
+{
+  "title": "Links | João Dellarmelina.",
+  "description": "Links do João.",
+  "applicationName": "URL Exhibition",
+  "keywords": [
+    "links",
+    "scrollytelling",
+    "portfolio",
+    "animation"
+  ],
+  "authors": [
+    {
+      "name": "João Dellarmelina"
+    }
+  ],
+  "creator": "João Dellarmelina",
+  "publisher": "João Dellarmelina",
+  "metadataBase": "https://l.joaodellarmelina.com",
+  "openGraph": {
+    "title": "Links | João Dellarmelina.",
+    "description": "Links do João.",
+    "url": "https://l.joaodellarmelina.com",
+    "siteName": "URL Exhibition",
+    "locale": "pt_BR",
+    "type": "website"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Links | João Dellarmelina.",
+    "description": "Links do João."
+  },
+  "robots": {
+    "index": true,
+    "follow": true
+  }
+}

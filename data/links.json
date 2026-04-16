@@ -1,0 +1,32 @@
+[
+  {
+    "id": "linkedin",
+    "title": "LinkedIn",
+    "subtitle": "",
+    "href": "https://www.linkedin.com/in/joao-dellarmelina/"
+  },
+      {
+    "id": "github",
+    "title": "Github",
+    "subtitle": "",
+    "href": "https://github.com/joaodellarmelina"
+  },
+  {
+    "id": "first",
+    "title": "Blog",
+    "subtitle": "joaodellarmelina.com",
+    "href": "https://joaodellarmelina.com"
+  },
+  {
+    "id": "joao-websites",
+    "title": "João Websites",
+    "subtitle": "joaowebsites.com",
+    "href": "https://joaowebsites.com"
+  },
+    {
+    "id": "dev-road",
+    "title": "The Dev Road",
+    "subtitle": "In progress",
+    "href": "https://thedevroad.com"
+  }
+]
