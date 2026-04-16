@@ -34,6 +34,8 @@ const PIN_SPACER_STEP = 56;
 const MAX_DISTANCE = 3.2;
 const DEFAULT_LINK_ID = "first";
 const TITLE = "João Dellarmelina.";
+const PROJECT_URL =
+  "https://github.com/joaodellarmelina/url-4show/tree/main";
 
 function clampIndex(value: number, itemCount: number) {
   return Math.max(0, Math.min(value, itemCount - 1));
@@ -65,6 +67,22 @@ function getDefaultIndex(links: LinkEntry[]) {
   const configuredIndex = links.findIndex((link) => link.id === DEFAULT_LINK_ID);
 
   return configuredIndex >= 0 ? configuredIndex : 0;
+}
+
+function GitHubMark() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+      className={styles.projectIcon}
+    >
+      <path
+        fill="currentColor"
+        d="M12 1.5a10.5 10.5 0 0 0-3.32 20.46c.53.1.72-.23.72-.51v-1.8c-2.94.64-3.56-1.24-3.56-1.24-.48-1.21-1.17-1.53-1.17-1.53-.96-.66.07-.65.07-.65 1.06.08 1.62 1.09 1.62 1.09.94 1.61 2.46 1.14 3.06.87.1-.68.37-1.14.67-1.4-2.35-.27-4.82-1.17-4.82-5.23 0-1.15.41-2.09 1.08-2.82-.11-.27-.47-1.37.1-2.86 0 0 .88-.28 2.88 1.08a9.9 9.9 0 0 1 5.24 0c2-1.36 2.88-1.08 2.88-1.08.57 1.49.21 2.59.1 2.86.67.73 1.08 1.67 1.08 2.82 0 4.07-2.47 4.96-4.83 5.22.38.33.72.97.72 1.96v2.91c0 .28.19.61.73.51A10.5 10.5 0 0 0 12 1.5Z"
+      />
+    </svg>
+  );
 }
 
 function ExhibitionStage({ links }: LinkExhibitionProps) {
@@ -402,10 +420,21 @@ function ExhibitionStage({ links }: LinkExhibitionProps) {
 
       <footer className={styles.footer}>
         <div className={styles.activeMeta}>
+          <p className={styles.activeLabel}>url</p>
           <p className={styles.activeValue}>
             {activeLink.href}
           </p>
         </div>
+
+        <a
+          className={styles.projectLink}
+          href={PROJECT_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <GitHubMark />
+          <span>source</span>
+        </a>
       </footer>
 
       <span className={styles.srOnly} aria-live="polite">
