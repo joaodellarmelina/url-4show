@@ -406,10 +406,6 @@ function ExhibitionStage({ links }: LinkExhibitionProps) {
             {activeLink.title} · {activeLink.subtitle}
           </p>
         </div>
-        <p className={styles.hint}>
-          Role a página ou use <strong>↑</strong>, <strong>↓</strong>,{" "}
-          <strong>Home</strong>, <strong>End</strong> e <strong>Enter</strong>.
-        </p>
       </footer>
 
       <span className={styles.srOnly} aria-live="polite">
