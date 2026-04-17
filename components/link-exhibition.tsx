@@ -448,13 +448,13 @@ export function LinkExhibition({ links }: LinkExhibitionProps) {
   const pinSpacerHeight = `${Math.max(
     links.length * PIN_SPACER_STEP,
     MIN_PIN_SPACER_HEIGHT
-  )}svh`;
+  )}dvh`;
 
   return (
     <main className={styles.page}>
       <Root>
         <Pin
-          childHeight="100svh"
+          childHeight="100dvh"
           pinSpacerHeight={pinSpacerHeight}
           childClassName={styles.pinChild}
           pinSpacerClassName={styles.pinSpacer}

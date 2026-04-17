@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import siteMetadata from "@/data/site-metadata.json";
 import {
   toNextMetadata,
@@ -9,6 +9,11 @@ import "./globals.css";
 export const metadata: Metadata = toNextMetadata(
   siteMetadata as SiteMetadataConfig
 );
+
+export const viewport: Viewport = {
+  themeColor: "#ece4d7",
+  colorScheme: "light",
+};
 
 export default function RootLayout({
   children,

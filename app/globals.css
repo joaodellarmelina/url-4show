@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4eee4;
+  --background: #ece4d7;
   --foreground: #14110f;
   --font-sans:
     "Helvetica Neue",
@@ -30,15 +30,29 @@
 
 html {
   min-height: 100%;
+  background: var(--background);
 }
 
 body {
+  position: relative;
   min-height: 100%;
   margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.95), transparent 42%),
+    linear-gradient(180deg, #f8f3eb 0%, #f2ede4 30%, #ece4d7 100%);
 }
 
 a,
