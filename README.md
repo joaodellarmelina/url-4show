@@ -1,22 +1,22 @@
 # URL 4show
 
-Site com experiência de scroll para **showroom** de links.
+Scroll experience website for a link **showroom**.
 
 ![Example](app/opengraph-image.png)
 
-Uma página de links animada com `Next.js`, `GSAP` e `@bsmnt/scrollytelling`.
+An animated link page built with `Next.js`, `GSAP`, and `@bsmnt/scrollytelling`.
 
-A proposta do projeto é simples: você mantém seus links em um arquivo JSON, personaliza os metadados em outro JSON, e a home gera uma experiência de scroll com destaque no item central.
+The project concept is simple: you manage your links in a JSON file, customize metadata in another JSON file, and the homepage generates a scroll experience highlighting the central item.
 
 
-## O que este projeto entrega
+## What this project delivers
 
-- Home com scroll vertical animado e viewport fixo
-- Link central em destaque
-- Links periféricos com escala e opacidade reduzidas
-- Navegação por scroll, teclado e botões
-- Configuração dos links via `JSON`
-- Configuração de metadados/SEO via `JSON`
+- Homepage with animated vertical scroll and fixed viewport
+- Featured central link
+- Peripheral links with reduced scale and opacity
+- Navigation via scroll, keyboard, and buttons
+- Link configuration via `JSON`
+- Metadata/SEO configuration via `JSON`
 
 ## Stack
 
@@ -26,81 +26,86 @@ A proposta do projeto é simples: você mantém seus links em um arquivo JSON, p
 - `GSAP`
 - `@bsmnt/scrollytelling`
 
-## Requisitos
+## Prerequisites
 
-Antes de começar, tenha instalado:
+Before starting, ensure you have installed:
 
 - `Node.js 20+`
 - `pnpm`
 
-Se você ainda não tiver `pnpm`:
+If you don't have `pnpm` yet:
 
 ```bash
 npm install -g pnpm
+
 ```
 
-## Instalação
+## Installation
 
-Clone o repositório:
+Clone the repository:
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone <REPOSITORY_URL>
 cd url-exhibition
+
 ```
 
-Instale as dependências:
+Install dependencies:
 
 ```bash
 pnpm install
+
 ```
 
-Inicie o projeto em desenvolvimento:
+Start the project in development mode:
 
 ```bash
 pnpm dev
+
 ```
 
-Abra no navegador:
+Open in your browser:
 
 ```text
 http://localhost:3000
+
 ```
 
+## Key structure
 
-## Estrutura importante
+The files you will likely edit most frequently are:
 
-Os arquivos que você provavelmente vai editar com mais frequência são:
+* `data/links.json`
+* `data/site-metadata.json`
+* `components/link-exhibition.tsx`
+* `components/link-exhibition.module.css`
 
-- `data/links.json`
-- `data/site-metadata.json`
-- `components/link-exhibition.tsx`
-- `components/link-exhibition.module.css`
+## How to add or edit links
 
-## Como adicionar ou editar links
+All page links are located in:
 
-Todos os links da página ficam em:
+[`data/links.json`](https://www.google.com/search?q=./data/links.json)
 
-[`data/links.json`](./data/links.json)
-
-Estrutura de cada item:
+Structure for each item:
 
 ```json
 {
   "id": "blog",
   "title": "Blog",
   "subtitle": "joaodellarmelina.com",
-  "href": "https://joaodellarmelina.com"
+  "href": "[https://joaodellarmelina.com](https://joaodellarmelina.com)"
 }
+
 ```
 
-### Campos
+### Fields
 
-- `id`: identificador único do item
-- `title`: texto principal exibido
-- `subtitle`: texto secundário exibido abaixo do título
-- `href`: URL aberta ao clicar no item central
+* `id`: unique identifier for the item
+* `title`: main displayed text
+* `subtitle`: secondary text displayed below the title
+* `href`: URL opened when clicking the central item
 
-### Exemplo
+### Example
 
 ```json
 [
@@ -108,175 +113,185 @@ Estrutura de cada item:
     "id": "linkedin",
     "title": "LinkedIn",
     "subtitle": "",
-    "href": "https://www.linkedin.com/in/seu-usuario/"
+    "href": "[https://www.linkedin.com/in/your-username/](https://www.linkedin.com/in/your-username/)"
   },
   {
     "id": "github",
     "title": "GitHub",
-    "subtitle": "github.com/seu-usuario",
-    "href": "https://github.com/seu-usuario"
+    "subtitle": "[github.com/your-username](https://github.com/your-username)",
+    "href": "[https://github.com/your-username](https://github.com/your-username)"
   },
   {
     "id": "blog",
     "title": "Blog",
-    "subtitle": "meusite.com",
-    "href": "https://meusite.com"
+    "subtitle": "mysite.com",
+    "href": "[https://mysite.com](https://mysite.com)"
   }
 ]
+
 ```
 
-## Link padrão na abertura
+## Default link on launch
 
-Hoje o projeto tenta abrir sempre com o item cujo `id` é:
+Currently, the project attempts to always open with the item whose `id` is:
 
 ```json
 "first"
+
 ```
 
-Se você quiser manter esse comportamento, garanta que exista um item com:
+If you want to keep this behavior, make sure an item exists with:
 
 ```json
 {
   "id": "first"
 }
+
 ```
 
-Se você quiser trocar o padrão, altere a constante `DEFAULT_LINK_ID` em:
+If you want to change the default, edit the `DEFAULT_LINK_ID` constant in:
 
-[`components/link-exhibition.tsx`](./components/link-exhibition.tsx)
+[`components/link-exhibition.tsx`](https://www.google.com/search?q=./components/link-exhibition.tsx)
 
-## Como editar os metadados da página
+## How to edit page metadata
 
-Os metadados ficam em:
+Metadata is located in:
 
-[`data/site-metadata.json`](./data/site-metadata.json)
+[`data/site-metadata.json`](https://www.google.com/search?q=./data/site-metadata.json)
 
-Você pode alterar:
+You can customize:
 
-- `title`
-- `description`
-- `applicationName`
-- `keywords`
-- `authors`
-- `creator`
-- `publisher`
-- `metadataBase`
-- `openGraph`
-- `twitter`
-- `robots`
+* `title`
+* `description`
+* `applicationName`
+* `keywords`
+* `authors`
+* `creator`
+* `publisher`
+* `metadataBase`
+* `openGraph`
+* `twitter`
+* `robots`
 
-### Exemplo
+### Example
 
 ```json
 {
-  "title": "Links | Seu Nome",
-  "description": "Minha página de links.",
+  "title": "Links | Your Name",
+  "description": "My links page.",
   "applicationName": "URL Exhibition",
-  "metadataBase": "https://links.seudominio.com",
+  "metadataBase": "[https://links.yourdomain.com](https://links.yourdomain.com)",
   "openGraph": {
-    "title": "Links | Seu Nome",
-    "description": "Minha página de links.",
-    "url": "https://links.seudominio.com",
+    "title": "Links | Your Name",
+    "description": "My links page.",
+    "url": "[https://links.yourdomain.com](https://links.yourdomain.com)",
     "siteName": "URL Exhibition",
-    "locale": "pt_BR",
+    "locale": "en_US",
     "type": "website"
   }
 }
+
 ```
 
-## Como personalizar o visual
+## How to customize appearance
 
-### Layout e comportamento
+### Layout and behavior
 
-A lógica principal do scrollytelling está em:
+The main scrollytelling logic is in:
 
-[`components/link-exhibition.tsx`](./components/link-exhibition.tsx)
+[`components/link-exhibition.tsx`](https://www.google.com/search?q=./components/link-exhibition.tsx)
 
-Ali você pode ajustar:
+There you can adjust:
 
-- item inicial
-- progressão do scroll
-- escala dos itens
-- opacidade
-- blur
-- navegação por teclado
-- clique no item ativo
+* initial item
+* scroll progression
+* item scale
+* opacity
+* blur
+* keyboard navigation
+* click action on active item
 
-### Estilo
+### Styling
 
-O CSS principal está em:
+The main CSS is in:
 
-[`components/link-exhibition.module.css`](./components/link-exhibition.module.css)
+[`components/link-exhibition.module.css`](https://www.google.com/search?q=./components/link-exhibition.module.css)
 
-Ali você pode ajustar:
+There you can adjust:
 
-- background
-- tipografia
-- posição dos links
-- setas laterais
-- controles
-- fade superior e inferior
-- responsividade
+* background
+* typography
+* link positions
+* side arrows
+* controls
+* top and bottom fade
+* responsiveness
 
-## Fluxo recomendado para quem for usar open source
+## Recommended workflow for open-source usage
 
-### 1. Fork ou clone o projeto
+### 1. Fork or clone the project
 
-Crie sua cópia do repositório e instale as dependências.
+Create your copy of the repository and install dependencies.
 
-### 2. Edite seus links
+### 2. Edit your links
 
-Troque o conteúdo de `data/links.json` pelos seus links reais.
+Replace the contents of `data/links.json` with your real links.
 
-### 3. Edite seus metadados
+### 3. Edit your metadata
 
-Atualize `data/site-metadata.json` com seu domínio, título e descrição.
+Update `data/site-metadata.json` with your domain, title, and description.
 
-### 4. Ajuste o visual
+### 4. Adjust appearance
 
-Se quiser que fique mais parecido com sua identidade visual, altere o CSS do módulo.
+If you want it to match your visual identity, modify the module's CSS.
 
-### 5. Valide localmente
+### 5. Validate locally
 
-Antes de publicar:
+Before publishing:
 
 ```bash
 pnpm lint
 pnpm build
+
 ```
 
-### 6. Publique
+### 6. Publish
 
-Você pode publicar em qualquer plataforma compatível com Next.js, como:
+You can deploy to any platform compatible with Next.js, such as:
 
-- Vercel
-- Netlify
-- Railway
-- servidor Node próprio
+* Vercel
+* Netlify
+* Railway
+* custom Node server
 
-## Deploy na Vercel
+## Deploying on Vercel
 
-A forma mais simples é:
+The simplest method is:
 
-1. subir o projeto para o GitHub
-2. importar o repositório na Vercel
-3. deixar os comandos padrão:
+1. push the project to GitHub
+2. import the repository into Vercel
+3. keep the default commands:
 
 ```text
 Install Command: pnpm install
 Build Command: pnpm build
 Output: Next.js default
+
 ```
 
-## Boas práticas para contribuir
+## Best practices for contributing
 
-Se você for abrir o projeto para outras pessoas usarem:
+If you share the project for others to use:
 
-- mantenha `links.json` com exemplos simples
-- evite colocar links pessoais sensíveis no template
-- documente qualquer mudança de comportamento no README
-- rode `pnpm lint` antes de subir alterações
+* keep `links.json` with simple examples
+* avoid committing sensitive personal links into the template
+* document any behavior changes in the README
+* run `pnpm lint` before committing changes
 
-## Licença
+## License
 
-Este projeto está sob a licença `MIT`. Veja o arquivo [`LICENSE`](./LICENSE).
+This project is under the `MIT` license. See the [`LICENSE`](https://www.google.com/search?q=./LICENSE) file.
+
+```
+
+```
